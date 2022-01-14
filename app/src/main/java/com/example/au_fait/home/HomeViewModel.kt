@@ -3,6 +3,10 @@ package com.example.au_fait.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.au_fait.network.CovidApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeViewModel:ViewModel() {
 
@@ -24,7 +28,17 @@ class HomeViewModel:ViewModel() {
     }
 
     private fun getCricetData() {
-        _response.value="Set the data"
+        _response.value= CovidApi.retrofitService.getProperties().enqueue(
+            object: Callback<String> {
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+
+                    _response.value = response.body()
+                }
+
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    _response.value = "Failure: " + t.message
+                }
+            }).toString()
     }
 
 

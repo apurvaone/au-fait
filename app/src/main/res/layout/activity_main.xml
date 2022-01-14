@@ -2,14 +2,15 @@
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_host_ragment"
+    android:id="@+id/nav_host_fragment"
     app:defaultNavHost="true"
     app:navGraph="@navigation/navigation"
 
 
-    tools:context=".detail.DetailFragment">
+>
 
 
 </fragment>
