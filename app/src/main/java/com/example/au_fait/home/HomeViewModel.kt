@@ -24,11 +24,12 @@ class HomeViewModel:ViewModel() {
         getCricetData()
 
 
-
     }
 
     private fun getCricetData() {
-        _response.value= CovidApi.retrofitService.getProperties().enqueue(
+
+        _response.value=
+            CovidApi.retrofitService.getProperties().enqueue(
             object: Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
 
