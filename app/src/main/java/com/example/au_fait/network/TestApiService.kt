@@ -25,7 +25,7 @@ interface TestApiService {
 }
 
 
-object CovidApi {
+object CricApi {
     val retrofitService : TestApiService by lazy {
         retrofit.create(TestApiService::class.java) }
 }

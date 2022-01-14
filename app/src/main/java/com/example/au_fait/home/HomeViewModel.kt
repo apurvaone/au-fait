@@ -3,7 +3,8 @@ package com.example.au_fait.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.au_fait.network.CovidApi
+
+import com.example.au_fait.network.CricetApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +30,7 @@ class HomeViewModel:ViewModel() {
     private fun getCricetData() {
 
         _response.value=
-            CovidApi.retrofitService.getProperties().enqueue(
+            CricetApi.retrofitService.getProperties().enqueue(
             object: Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
 
